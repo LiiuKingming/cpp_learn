@@ -181,9 +181,7 @@ namespace km {
             }
 
             int i = res1.size() - res2.size();
-
-            for (;i > 0; i--)
-            {
+            for (;i > 0; i--){
                 res1.pop();
                 //用这样的方式让两个栈长度对齐
             }
