@@ -37,3 +37,29 @@ public:
         return -1;
     }
 };
+
+//leetcode 199. 二叉树的右视图
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> ans;
+    vector<int> rightSideView(TreeNode* root) {
+        dfs(root, 1);
+        return ans;
+    }
+    
+    void dfs(TreeNode* root, int i){
+        if (root == NULL) return;
+        if (ans.size() < i) ans.push_back(root->val);
+        dfs(root->right, i+1);
+        dfs(root->left, i+1);
+    }
+};
